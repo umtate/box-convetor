@@ -7,6 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./container/container.module').then((mod) => mod.ContainerModule),
   },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

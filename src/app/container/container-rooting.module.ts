@@ -15,13 +15,14 @@ const routes: Routes = [
         component: CurrencyComponent,
       },
       {
-        path: 'dimesions',
+        path: 'dimension',
         component: DimensionComponent,
       },
       {
         path: 'stats',
         component: StatsComponent,
       },
+      { path: '**', redirectTo: '', pathMatch: 'full' },
     ],
   },
 ];

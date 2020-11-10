@@ -1,4 +1,8 @@
 import { NgModule } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { ContainerRoutingModule } from './container-rooting.module';
 import { CommonModule } from '@angular/common';
@@ -14,6 +18,13 @@ import { StatsComponent } from './stats/stats.component';
     DimensionComponent,
     StatsComponent,
   ],
-  imports: [CommonModule, ContainerRoutingModule],
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTabsModule,
+    ContainerRoutingModule,
+  ],
 })
 export class ContainerModule {}

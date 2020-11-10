@@ -1,1 +1,49 @@
-<p>currency works!</p>
+<div class="currency" *ngIf="currency$ | async as cur">
+  <div class="inscription">
+    <p>{{ cur.base }}</p>
+  </div>
+  <div>
+    <div class="container">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter amount</mat-label>
+        <input matInput #input placeholder="" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select currency</mat-label>
+        <mat-select (selectionChange)="selectBase($event.value)">
+          <mat-option
+            *ngFor="let item of cur.rates | keyvalue"
+            [value]="item.key"
+            >{{ item.key }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="container">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter amount</mat-label>
+        <input matInput #input placeholder="" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select currency</mat-label>
+        <mat-select (selectionChange)="selectPair($event.value)">
+          <mat-option
+            *ngFor="let item of cur.rates | keyvalue"
+            [value]="item.key"
+            >{{ item.key }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="inscription">
+    <p>Last updated {{ cur.date }}</p>
+  </div>
+</div>
+
+<div class="stats">
+  <app-stats></app-stats>
+</div>
