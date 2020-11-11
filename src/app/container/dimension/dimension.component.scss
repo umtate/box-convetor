@@ -3,8 +3,37 @@
 }
 
 .inscription {
+  margin: 2rem auto;
   text-align: center;
 }
 .container .mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+
+.top-input {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  font-size: 180%;
+  height: 40px;
+  padding: 1px 6px;
+  text-align: center;
+  width: 200px;
+  border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+}
+
+.bottom-input {
+  background-color: #f8f8f8;
+  width: 200px;
+  height: 20px;
+  border: 1px solid #d9d9d9;
+  padding: 1px 6px;
+}
+
+.input-group {
+  display: inline-block;
+  width: 211px;
+  padding-top: 10px;
+  margin-left: 1rem;
 }

@@ -5,6 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CurrencyModule } from './currency';
 import { RatesModule } from './rates';
+import { DimensionsModule } from './dimensions';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { RatesModule } from './rates';
     }),
     CurrencyModule,
     RatesModule,
+    DimensionsModule,
   ],
 })
 export class RootStoreModule {}

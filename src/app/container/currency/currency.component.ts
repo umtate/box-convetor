@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FacadeService } from '../../shared/facade/facade.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-currency',
@@ -10,6 +11,13 @@ import { FacadeService } from '../../shared/facade/facade.service';
 export class CurrencyComponent implements OnInit {
   constructor(private facade: FacadeService) {}
   currency$: Observable<any>;
+  rate: number = 0;
+
+  date = new FormControl(new Date());
+
+  @Input() convertAmount: number = 0;
+
+  @Input() baseAmount: number = 0;
 
   ngOnInit(): void {
     this.facade.currency().then((obs) => {
@@ -18,10 +26,27 @@ export class CurrencyComponent implements OnInit {
   }
 
   selectBase(event) {
+    this.clearInputs();
     this.facade.rates(event);
   }
 
+  clearInputs() {
+    this.convertAmount = 0;
+    this.baseAmount = 0;
+  }
+
   selectPair(event) {
-    console.log(event);
+    this.facade.calculate(event).then((val: number) => {
+      this.convertAmount = this.baseAmount * val;
+      this.rate = val;
+    });
+  }
+
+  calculate() {
+    this.convertAmount = this.baseAmount * this.rate;
+  }
+
+  convert() {
+    this.baseAmount = this.convertAmount / this.rate;
   }
 }

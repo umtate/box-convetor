@@ -1,46 +1,38 @@
 <div class="dimension">
-  <mat-form-field appearance="fill">
-    <mat-label>Select dimension</mat-label>
-    <mat-select>
-      <mat-option value="option">Option</mat-option>
-      <mat-option value="primary">Primary</mat-option>
-      <mat-option value="accent">Accent</mat-option>
-      <mat-option value="warn">Warn</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div class="">
-    <div class="container">
-      <mat-form-field appearance="outline">
-        <mat-label>Enter some input</mat-label>
-        <input matInput #input placeholder="Ex. Nougat" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Select dimension</mat-label>
-        <mat-select>
-          <mat-option value="option">Option</mat-option>
-          <mat-option value="primary">Primary</mat-option>
-          <mat-option value="accent">Accent</mat-option>
-          <mat-option value="warn">Warn</mat-option>
-        </mat-select>
-      </mat-form-field>
+  <div class="container">
+    <div class="input-group">
+      <input
+        matInput
+        #input
+        placeholder="Enter value"
+        class="top-input"
+        type="number"
+        [(ngModel)]="baseAmount"
+        (ngModelChange)="calculate()"
+      />
+      <mat-select class="bottom-input" [(value)]="selectedOne">
+        <mat-option *ngFor="let item of length" [value]="item">{{
+          item
+        }}</mat-option>
+      </mat-select>
     </div>
 
-    <div class="container">
-      <mat-form-field appearance="outline">
-        <mat-label>Enter some input</mat-label>
-        <input matInput #input placeholder="Ex. Nougat" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Select dimension</mat-label>
-        <mat-select>
-          <mat-option value="option">Option</mat-option>
-          <mat-option value="primary">Primary</mat-option>
-          <mat-option value="accent">Accent</mat-option>
-          <mat-option value="warn">Warn</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div class="input-group">
+      <input
+        matInput
+        #input
+        placeholder="Enter value"
+        class="top-input"
+        type="number"
+        type="number"
+        [(ngModel)]="convertAmount"
+        (ngModelChange)="calculate()"
+      />
+      <mat-select class="bottom-input" [(value)]="selectedTwo">
+        <mat-option *ngFor="let item of length" [value]="item">{{
+          item
+        }}</mat-option>
+      </mat-select>
     </div>
   </div>
   <div class="inscription">

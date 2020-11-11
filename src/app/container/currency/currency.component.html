@@ -1,14 +1,7 @@
 <div class="currency" *ngIf="currency$ | async as cur">
-  <div class="inscription">
-    <p>{{ cur.base }}</p>
-  </div>
+  <div class="inscription"></div>
   <div>
     <div class="container">
-      <mat-form-field appearance="outline">
-        <mat-label>Enter amount</mat-label>
-        <input matInput #input placeholder="" />
-      </mat-form-field>
-
       <mat-form-field appearance="fill">
         <mat-label>Select currency</mat-label>
         <mat-select (selectionChange)="selectBase($event.value)">
@@ -19,14 +12,23 @@
           >
         </mat-select>
       </mat-form-field>
-    </div>
 
-    <div class="container">
       <mat-form-field appearance="outline">
         <mat-label>Enter amount</mat-label>
-        <input matInput #input placeholder="" />
+        <input
+          matInput
+          #input
+          type="number"
+          [(ngModel)]="baseAmount"
+          (ngModelChange)="calculate()"
+          [id]="baseAmount"
+        />
       </mat-form-field>
+    </div>
 
+    <div class="inscription"><p>Convert to</p></div>
+
+    <div class="container">
       <mat-form-field appearance="fill">
         <mat-label>Select currency</mat-label>
         <mat-select (selectionChange)="selectPair($event.value)">
@@ -37,13 +39,24 @@
           >
         </mat-select>
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          #input
+          [(ngModel)]="convertAmount"
+          (ngModelChange)="convert()"
+          [id]="convertAmount"
+        />
+      </mat-form-field>
     </div>
   </div>
-  <div class="inscription">
-    <p>Last updated {{ cur.date }}</p>
-  </div>
-</div>
-
-<div class="stats">
-  <app-stats></app-stats>
+  <mat-form-field appearance="fill">
+    <mat-label>Pick particular date</mat-label>
+    <input matInput [matDatepicker]="picker1" [formControl]="date" />
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
 </div>
