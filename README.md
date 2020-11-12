@@ -1,3 +1,37 @@
+## Installation
+
+Use the package manager [npm](https://nodejs.org/en/download/) to install dependencies.
+
+Install angular CLI
+
+```bash
+npm install -g @angular/cli@latest
+```
+
+To install application dependencies
+
+```bash
+npm install
+```
+
+## Usage
+
+Run application
+```node
+ng serve
+```
+
+Test Application
+```node
+ng test
+```
+
+Production build
+```node
+ng build --prod
+```
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 # Convertor
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
@@ -22,6 +56,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
