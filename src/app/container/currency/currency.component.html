@@ -27,7 +27,7 @@
               type="number"
               #input
               (change)="calculate()"
-              [ngModel]="baseAmount | number: '1.2-2' | nocomma"
+              [ngModel]="baseAmount | nocomma"
               (ngModelChange)="baseAmount = $event"
               [id]="baseAmount"
             />
@@ -56,7 +56,7 @@
               type="number"
               #input
               (change)="convert()"
-              [ngModel]="convertAmount | number: '1.2-2' | nocomma"
+              [ngModel]="convertAmount | nocomma"
               (ngModelChange)="convertAmount = $event"
               [id]="convertAmount"
             />

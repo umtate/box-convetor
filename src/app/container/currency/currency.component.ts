@@ -63,11 +63,13 @@ export class CurrencyComponent implements OnInit {
   // calculate target value give base amount
   calculate() {
     this.convertAmount = this.baseAmount * this.rate;
+    this.convertAmount = Number(this.convertAmount.toFixed(2));
   }
 
   // calculate base value give targert amount
 
   convert() {
     this.baseAmount = this.convertAmount / this.rate;
+    this.baseAmount = Number(this.baseAmount.toFixed(2));
   }
 }

@@ -17,7 +17,8 @@ const routes: Routes = [
         path: 'dimension',
         component: DimensionComponent,
       },
-      { path: '**', redirectTo: '', pathMatch: 'full' },
+      { path: '', redirectTo: 'currency', pathMatch: 'full' },
+      { path: '**', redirectTo: 'currency', pathMatch: 'full' },
     ],
   },
 ];
