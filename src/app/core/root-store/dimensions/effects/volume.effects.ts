@@ -10,11 +10,11 @@ export class VolumeEffects {
   constructor(private actions$: Actions, private _dim: DimensionsService) {}
 
   @Effect()
-  currency$ = this.actions$.pipe(
+  volume$ = this.actions$.pipe(
     ofType(volActions.VolumeActionTypes.GET_VOLUME),
     switchMap(() => {
-      return this._dim.getLength().pipe(
-        switchMap((res) => of(new volActions.GetLengthSuccess(res))),
+      return this._dim.getVolume().pipe(
+        switchMap((res) => of(new volActions.GetVolumeSuccess(res))),
         catchError((err) => of(err))
       );
     })

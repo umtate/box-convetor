@@ -14,6 +14,7 @@ import { ContainerComponent } from './container.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { DimensionComponent } from './dimension/dimension.component';
 import { StatsComponent } from './stats/stats.component';
+import { NocommaPipe } from '../shared/pipes/nocomma.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { StatsComponent } from './stats/stats.component';
     CurrencyComponent,
     DimensionComponent,
     StatsComponent,
+    NocommaPipe,
   ],
   imports: [
     CommonModule,
@@ -34,5 +36,6 @@ import { StatsComponent } from './stats/stats.component';
     FormsModule,
     ReactiveFormsModule,
   ],
+  providers: [NocommaPipe],
 })
 export class ContainerModule {}

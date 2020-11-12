@@ -34,6 +34,6 @@ export function volumeReducer(
       };
     }
     default:
-      return initialState;
+      return state;
   }
 }

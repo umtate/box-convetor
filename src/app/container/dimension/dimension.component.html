@@ -1,3 +1,6 @@
+<div class="head">
+  <h1>Dimensions Converter</h1>
+</div>
 <div class="dimension">
   <div class="container">
     <div class="input-group">
@@ -8,9 +11,13 @@
         class="top-input"
         type="number"
         [(ngModel)]="baseAmount"
-        (ngModelChange)="calculate()"
+        (ngModelChange)="calculateBase()"
       />
-      <mat-select class="bottom-input" [(value)]="selectedOne">
+      <mat-select
+        class="bottom-input"
+        [(value)]="selectedOne"
+        (selectionChange)="getRate()"
+      >
         <mat-option *ngFor="let item of length" [value]="item">{{
           item
         }}</mat-option>
@@ -26,16 +33,17 @@
         type="number"
         type="number"
         [(ngModel)]="convertAmount"
-        (ngModelChange)="calculate()"
+        (ngModelChange)="calculateConvert()"
       />
-      <mat-select class="bottom-input" [(value)]="selectedTwo">
+      <mat-select
+        class="bottom-input"
+        [(value)]="selectedTwo"
+        (selectionChange)="getRate()"
+      >
         <mat-option *ngFor="let item of length" [value]="item">{{
           item
         }}</mat-option>
       </mat-select>
     </div>
-  </div>
-  <div class="inscription">
-    <p>Formula 1 meter = 100 centimeters</p>
   </div>
 </div>

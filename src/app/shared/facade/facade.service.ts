@@ -4,6 +4,7 @@ import { GetCurreniesService } from './getCurrencies.service';
 import { GetRateService } from './getRates.service';
 import { CalRateService } from './calRates.service';
 import { GetDimensionsService } from './getDimensions.service';
+import { DimensionCalcService } from './dimensionCalc.service';
 
 import { Observable } from 'rxjs';
 
@@ -16,7 +17,8 @@ export class FacadeService {
     private _getCur: GetCurreniesService,
     private _rates: GetRateService,
     private _calculate: CalRateService,
-    private _dim: GetDimensionsService
+    private _dim: GetDimensionsService,
+    private _dimRate: DimensionCalcService
   ) {}
 
   async currency(): Promise<Observable<any>> {
@@ -39,5 +41,9 @@ export class FacadeService {
       length: this._dim.getLengthUnits(),
       volume: this._dim.getVolumeUnits(),
     };
+  }
+
+  dimRateCalculator(p1: string, p2: string) {
+    return this._dimRate.calculate(p1, p2);
   }
 }

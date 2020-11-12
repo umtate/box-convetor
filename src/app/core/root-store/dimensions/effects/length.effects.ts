@@ -10,7 +10,7 @@ export class LengthEffects {
   constructor(private actions$: Actions, private _dim: DimensionsService) {}
 
   @Effect()
-  currency$ = this.actions$.pipe(
+  length$ = this.actions$.pipe(
     ofType(lengthActions.LengthActionTypes.GET_LENGTH),
     switchMap(() => {
       return this._dim.getLength().pipe(

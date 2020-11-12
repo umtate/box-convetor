@@ -12,7 +12,7 @@ export class GetDimensionsService {
 
   loadDimensions() {
     this._store.dispatch(new GetLength());
-    this._store.dispatch(new GetVolume());
+    //  this._store.dispatch(new GetVolume());
   }
 
   async getLengthUnits(): Promise<any> {

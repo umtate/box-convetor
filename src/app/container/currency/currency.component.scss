@@ -1,5 +1,6 @@
 .currency {
   margin: 1rem;
+  width: 100%;
 }
 
 .inscription {
@@ -19,4 +20,12 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+.select-input {
+  width: 30%;
+}
+
+.head {
+  text-align: center;
 }

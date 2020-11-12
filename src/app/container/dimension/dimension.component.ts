@@ -17,8 +17,15 @@ export class DimensionComponent implements OnInit {
 
   length: Array<any>;
   volume: Array<any>;
+  rate: number;
 
   ngOnInit(): void {
+    this.load();
+
+    this.getRate();
+  }
+
+  load() {
     this._facade.loadDimensions().then((val) => {
       val.length.then((len) => {
         this.length = len;
@@ -28,5 +35,17 @@ export class DimensionComponent implements OnInit {
     });
   }
 
-  calculate() {}
+  getRate() {
+    this._facade
+      .dimRateCalculator(this.selectedOne, this.selectedTwo)
+      .then((rate) => (this.rate = rate));
+  }
+
+  calculateBase() {
+    this.convertAmount = this.baseAmount * this.rate;
+  }
+
+  calculateConvert() {
+    this.baseAmount = this.convertAmount / this.rate;
+  }
 }

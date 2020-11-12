@@ -21,7 +21,7 @@ export function lengthReducer(
       return {
         ...state,
         loading: true,
-        loade: false,
+        loaded: false,
       };
     }
     case lengthActions.LengthActionTypes.GET_LENGTH_SUCCESS: {
