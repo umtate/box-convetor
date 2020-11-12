@@ -46,4 +46,8 @@ export class FacadeService {
   dimRateCalculator(p1: string, p2: string) {
     return this._dimRate.calculate(p1, p2);
   }
+
+  currencyLoading() {
+    return this._loadCur.loader();
+  }
 }

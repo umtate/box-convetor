@@ -10,9 +10,9 @@ import { GetLength, GetVolume } from '../../core/root-store';
 export class GetDimensionsService {
   constructor(private _store: Store<any>) {}
 
-  loadDimensions() {
+  async loadDimensions() {
+    this._store.dispatch(new GetVolume());
     this._store.dispatch(new GetLength());
-    //  this._store.dispatch(new GetVolume());
   }
 
   async getLengthUnits(): Promise<any> {

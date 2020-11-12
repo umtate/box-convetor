@@ -16,7 +16,6 @@ export class DimensionComponent implements OnInit {
   @Input() baseAmount: number = 0;
 
   length: Array<any>;
-  volume: Array<any>;
   rate: number;
 
   ngOnInit(): void {
@@ -25,16 +24,16 @@ export class DimensionComponent implements OnInit {
     this.getRate();
   }
 
+  // load list of dimensions from data store
   load() {
     this._facade.loadDimensions().then((val) => {
       val.length.then((len) => {
         this.length = len;
       });
-
-      val.volume.then((vol) => (this.volume = vol));
     });
   }
 
+  // pass varibles as strings to be converted and get rate in return
   getRate() {
     this._facade
       .dimRateCalculator(this.selectedOne, this.selectedTwo)

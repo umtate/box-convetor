@@ -2,63 +2,68 @@
   <h1>Currency Converter</h1>
 </div>
 
-<div class="currency" *ngIf="currency$ | async as cur">
-  <div class="inscription"></div>
-  <div>
-    <div class="container">
-      <h3>Select base currency</h3>
-      <mat-form-field appearance="fill" class="select-input">
-        <mat-label>Currency</mat-label>
-        <mat-select (selectionChange)="selectBase($event.value)">
-          <mat-option
-            *ngFor="let item of cur.rates | keyvalue"
-            [value]="item.key"
-            >{{ item.key }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
+<div *ngIf="loading | async; else loader">
+  <ng-container>
+    <div class="currency" *ngIf="currency$ | async as cur">
+      <div class="inscription"></div>
+      <div>
+        <div class="container">
+          <h3>Select base currency</h3>
+          <mat-form-field appearance="fill" class="select-input">
+            <mat-label>Currency</mat-label>
+            <mat-select (selectionChange)="selectBase($event.value)">
+              <mat-option
+                *ngFor="let item of cur.rates | keyvalue"
+                [value]="item.key"
+                >{{ item.key }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Enter amount</mat-label>
-        <input
-          matInput
-          type="number"
-          #input
-          (change)="calculate()"
-          [ngModel]="baseAmount | number: '1.2-2' | nocomma"
-          (ngModelChange)="baseAmount = $event"
-          [id]="baseAmount"
-        />
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{ base ? base : "Enter amount" }}</mat-label>
+            <input
+              matInput
+              type="number"
+              #input
+              (change)="calculate()"
+              [ngModel]="baseAmount | number: '1.2-2' | nocomma"
+              (ngModelChange)="baseAmount = $event"
+              [id]="baseAmount"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="inscription"><i class="fas fa-chevron-down fa-5x"></i></div>
+
+        <div class="container">
+          <h3>Select target currency</h3>
+          <mat-form-field appearance="fill" class="select-input">
+            <mat-label>Currency</mat-label>
+            <mat-select (selectionChange)="selectPair($event.value)">
+              <mat-option
+                *ngFor="let item of cur.rates | keyvalue"
+                [value]="item.key"
+                >{{ item.key }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ target ? target : "amount" }}</mat-label>
+            <input
+              matInput
+              type="number"
+              #input
+              (change)="convert()"
+              [ngModel]="convertAmount | number: '1.2-2' | nocomma"
+              (ngModelChange)="convertAmount = $event"
+              [id]="convertAmount"
+            />
+          </mat-form-field>
+        </div>
+      </div>
     </div>
-
-    <div class="inscription"><i class="fas fa-chevron-down fa-5x"></i></div>
-
-    <div class="container">
-      <h3>Select target currency</h3>
-      <mat-form-field appearance="fill" class="select-input">
-        <mat-label>Currency</mat-label>
-        <mat-select (selectionChange)="selectPair($event.value)">
-          <mat-option
-            *ngFor="let item of cur.rates | keyvalue"
-            [value]="item.key"
-            >{{ item.key }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Amount</mat-label>
-        <input
-          matInput
-          type="number"
-          #input
-          (change)="convert()"
-          [ngModel]="convertAmount | number: '1.2-2' | nocomma"
-          (ngModelChange)="convertAmount = $event"
-          [id]="convertAmount"
-        />
-      </mat-form-field>
-    </div>
-  </div>
+  </ng-container>
 </div>
+<ng-template #loader><mat-spinner></mat-spinner></ng-template>
