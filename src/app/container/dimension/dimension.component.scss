@@ -33,11 +33,25 @@
 
 .input-group {
   display: inline-block;
-  width: 211px;
+  width: 220px;
   padding-top: 10px;
   margin-left: 1rem;
 }
 
 .head {
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .input-group {
+    width: 100%;
+  }
+
+  .top-input {
+    width: 80%;
+  }
+
+  .bottom-input {
+    width: 80%;
+  }
 }

@@ -38,7 +38,10 @@ export class DimensionComponent implements OnInit {
   getRate() {
     this._facade
       .dimRateCalculator(this.selectedOne, this.selectedTwo)
-      .then((rate) => (this.rate = rate));
+      .then((rate) => {
+        this.rate = rate;
+        this.calculateBase();
+      });
   }
 
   calculateBase() {
