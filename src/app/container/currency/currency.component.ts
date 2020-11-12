@@ -39,7 +39,7 @@ export class CurrencyComponent implements OnInit {
   }
 
   // on selecting base currency clear inputs and get rates for selected currency
-  selectBase(event) {
+  selectBase(event: string) {
     this.clearInputs();
     this.facade.rates(event);
     this.base = event;

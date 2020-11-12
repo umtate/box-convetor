@@ -14,7 +14,6 @@ import { CommonModule } from '@angular/common';
 import { ContainerComponent } from './container.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { DimensionComponent } from './dimension/dimension.component';
-import { StatsComponent } from './stats/stats.component';
 import { NocommaPipe } from '../shared/pipes/nocomma.pipe';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { NocommaPipe } from '../shared/pipes/nocomma.pipe';
     ContainerComponent,
     CurrencyComponent,
     DimensionComponent,
-    StatsComponent,
     NocommaPipe,
   ],
   imports: [

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContainerComponent } from './container.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { DimensionComponent } from './dimension/dimension.component';
-import { StatsComponent } from './stats/stats.component';
 
 const routes: Routes = [
   {
@@ -17,10 +16,6 @@ const routes: Routes = [
       {
         path: 'dimension',
         component: DimensionComponent,
-      },
-      {
-        path: 'stats',
-        component: StatsComponent,
       },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ],

@@ -17,7 +17,7 @@ export class DimensionCalcService {
       .select('dimensions')
       .pipe(pluck('length', 'length'), take(1))
       .subscribe((val) => {
-        val.forEach((item) => {
+        val?.forEach((item) => {
           if (item.id === p1) {
             rate = item[p2];
           }

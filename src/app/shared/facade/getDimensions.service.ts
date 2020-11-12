@@ -24,7 +24,7 @@ export class GetDimensionsService {
         filter((x) => !!x)
       )
       .subscribe((val) => {
-        val.forEach((item) => arr.push(item.id));
+        val?.forEach((item) => arr.push(item.id));
       });
 
     return arr;
@@ -38,7 +38,7 @@ export class GetDimensionsService {
         pluck('volume', 'volume'),
         filter((x) => !!x)
       )
-      .subscribe((val) => val.forEach((item) => arr.push(item.id)));
+      .subscribe((val) => val?.forEach((item) => arr.push(item.id)));
 
     return arr;
   }

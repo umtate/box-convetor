@@ -18,7 +18,7 @@ export class DimensionsService {
 
   getLengthUnits(): Observable<any> {
     const arr = [];
-    measures.length.forEach((val) => {
+    measures?.length?.forEach((val) => {
       arr.push(val.id);
     });
     return of(arr);
@@ -26,7 +26,7 @@ export class DimensionsService {
 
   getVolumeUnits(): Observable<any> {
     const arr = [];
-    measures.volume.forEach((val) => {
+    measures?.volume?.forEach((val) => {
       arr.push(val.id);
     });
     return of(arr);
