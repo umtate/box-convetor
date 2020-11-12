@@ -1,22 +1,22 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { CurrencyService } from './currency.service';
+import { RatesService } from './rates.service';
 
-describe('CurrencyService', () => {
-  let service: CurrencyService;
+describe('RatesService', () => {
+  let service: RatesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({ imports: [HttpClientModule] });
-    service = TestBed.inject(CurrencyService);
+    service = TestBed.inject(RatesService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should observable should have value', () => {
-    const result$ = service.getCurrencyInfo();
+  it('should have a valid rate response', () => {
+    const result$ = service.getRates('USD');
     result$.subscribe((res) => {
       expect(res).toBeDefined();
     });
